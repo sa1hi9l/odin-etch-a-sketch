@@ -1,5 +1,6 @@
-function createGrids(containerSize,numOfGrids){
-    let container = document.querySelector(".container");
+let container = document.querySelector(".container");
+function createGrids(containerSize,numOfGrids){    
+    container.innerHTML = "";
     let totalSquares = numOfGrids * numOfGrids;
     let gridSize = containerSize / numOfGrids;
 
@@ -7,7 +8,6 @@ function createGrids(containerSize,numOfGrids){
         width: `${containerSize}px`,
         height:`${containerSize}px`
     });
-    
     for(let i = 0 ; i < totalSquares; i++){
         let grid = document.createElement('div');
         grid.classList.add('canvas');
@@ -15,8 +15,16 @@ function createGrids(containerSize,numOfGrids){
             width: `${gridSize}px`,
             height: `${gridSize}px`
         });
+        grid.addEventListener("mouseover", () =>{
+            grid.style.backgroundColor = "burlywood";
+        });
         container.appendChild(grid);
     }
-
+    let squares = document.querySelectorAll('.canvas');
 }
-createGrids(600,20);
+
+function clearAll(){
+    container.innerHTML = "";
+    createGrids(400,16);
+}
+createGrids(400,16);
