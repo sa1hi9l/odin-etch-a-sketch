@@ -1,4 +1,15 @@
 let container = document.querySelector(".container");
+function getRandomColor(){
+    let rgb = []; 
+    let red = Math.random() * 256;
+    rgb.push(red);
+    let green = Math.random() * 256;
+    rgb.push(green);
+    let blue = Math.random() * 256;
+    rgb.push(blue);
+    return rgb;
+}
+getRandomColor();
 function createGrids(containerSize,numOfGrids){    
     container.innerHTML = "";
     let totalSquares = numOfGrids * numOfGrids;
@@ -15,8 +26,12 @@ function createGrids(containerSize,numOfGrids){
             width: `${gridSize}px`,
             height: `${gridSize}px`
         });
+        let opacity = 0;
         grid.addEventListener("mouseover", () =>{
-            grid.style.backgroundColor = "burlywood";
+            opacity += 0.1;
+            let color = getRandomColor();
+            color = color.join(',');
+            grid.style.backgroundColor = `rgba(${color},${opacity})`;
         });
         container.appendChild(grid);
     }
