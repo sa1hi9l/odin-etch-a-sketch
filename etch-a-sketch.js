@@ -25,6 +25,29 @@ function createGrids(containerSize,numOfGrids){
 
 function clearAll(){
     container.innerHTML = "";
-    createGrids(400,16);
+    createGrids(containerSize,numOfGrids);
 }
+let sizeButton = document.querySelector("#size");
+let gridNumButton = document.querySelector("#num");
+
+
+let containerSize = 400;
+let numOfGrids = 16;
+sizeButton.addEventListener("click",()=>{
+    containerSize = prompt("Enter Container Size (in px).");
+    container.innerHTML = "";
+    createGrids(containerSize,numOfGrids)
+
+});
+gridNumButton.addEventListener("click",()=>{
+    numOfGrids = prompt("Enter Number of Grids (max 100).");
+    container.innerHTML = "";
+    if(numOfGrids > 100){
+        alert("Using 100 grids by default.")
+        createGrids(containerSize,100);
+    }
+    else {
+        createGrids(containerSize,numOfGrids);
+    }
+});
 createGrids(400,16);

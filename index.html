@@ -9,9 +9,11 @@
 <body>
     <h1>Etch-a-Sketch</h1>
     <p>A browser version of something between a sketchpad and an Etch-A-Sketch</p>
-    <button id="containerSize">Set Container Size</button>
-    <button id="numOfGrids">Set Number of Grids</button>
-    <button onclick="clearAll()">Clear All</button>
+    <div class="buttons">
+        <button id="size">Set Container Size</button>
+        <button id="num">Set Number of Grids</button>
+        <button onclick="clearAll()">Clear All</button>
+    </div>
     <div class="container"></div>
     <script src="etch-a-sketch.js"></script>
 </body>
